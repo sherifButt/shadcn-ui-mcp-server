@@ -1,6 +1,6 @@
 import { RegistryItem } from '../types/index.js';
 
-const REGISTRY_BASE_URL = 'https://ui.shadcn.com/registry';
+const REGISTRY_BASE_URL = 'https://ui.shadcn.com/r/styles';
 const DEFAULT_STYLE = 'default';
 
 export interface RegistryConfig {
@@ -18,7 +18,7 @@ export class RegistryService {
   }
 
   async fetchComponent(name: string): Promise<RegistryItem> {
-    const url = `${this.baseUrl}/${this.style}/ui/${name}.json`;
+    const url = `${this.baseUrl}/${this.style}/${name}.json`;
     
     try {
       const response = await fetch(url);
@@ -38,7 +38,7 @@ export class RegistryService {
   }
 
   async fetchBlock(name: string): Promise<RegistryItem> {
-    const url = `${this.baseUrl}/${this.style}/block/${name}.json`;
+    const url = `${this.baseUrl}/${this.style}/${name}.json`;
     
     try {
       const response = await fetch(url);
@@ -58,7 +58,7 @@ export class RegistryService {
   }
 
   async fetchExample(name: string): Promise<RegistryItem> {
-    const url = `${this.baseUrl}/${this.style}/example/${name}.json`;
+    const url = `${this.baseUrl}/${this.style}/${name}.json`;
     
     try {
       const response = await fetch(url);
@@ -78,7 +78,7 @@ export class RegistryService {
   }
 
   async fetchIndex(): Promise<Array<{ name: string; type: string; registryDependencies?: string[] }>> {
-    const url = `${this.baseUrl}/${this.style}/index.json`;
+    const url = `https://ui.shadcn.com/r/index.json`;
     
     try {
       const response = await fetch(url);

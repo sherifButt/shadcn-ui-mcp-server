@@ -8,7 +8,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'authentication',
     components: ['button', 'card', 'input', 'label'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/authentication-01.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/authentication-01.json'
   },
   'authentication-02': {
     name: 'authentication-02',
@@ -16,7 +16,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'authentication',
     components: ['button', 'card', 'input', 'label', 'separator'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/authentication-02.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/authentication-02.json'
   },
   'authentication-03': {
     name: 'authentication-03',
@@ -24,7 +24,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'authentication',
     components: ['button', 'card', 'input', 'label'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/authentication-03.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/authentication-03.json'
   },
   'authentication-04': {
     name: 'authentication-04',
@@ -32,7 +32,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'authentication',
     components: ['button', 'input', 'label'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/authentication-04.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/authentication-04.json'
   },
 
   // Dashboard Blocks
@@ -42,7 +42,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'dashboard',
     components: ['card', 'tabs', 'button'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/dashboard-01.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/dashboard-01.json'
   },
   'dashboard-02': {
     name: 'dashboard-02',
@@ -50,7 +50,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'dashboard',
     components: ['card', 'sheet', 'button', 'nav'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/dashboard-02.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/dashboard-02.json'
   },
   'dashboard-03': {
     name: 'dashboard-03',
@@ -58,7 +58,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'dashboard',
     components: ['card', 'chart', 'table', 'tabs'],
     dependencies: ['recharts'],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/dashboard-03.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/dashboard-03.json'
   },
   'dashboard-04': {
     name: 'dashboard-04',
@@ -66,7 +66,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'dashboard',
     components: ['card', 'chart', 'select', 'button'],
     dependencies: ['recharts'],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/dashboard-04.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/dashboard-04.json'
   },
   'dashboard-05': {
     name: 'dashboard-05',
@@ -74,7 +74,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'dashboard',
     components: ['card', 'sheet', 'button', 'badge', 'dropdown-menu'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/dashboard-05.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/dashboard-05.json'
   },
   'dashboard-06': {
     name: 'dashboard-06',
@@ -82,7 +82,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'dashboard',
     components: ['card', 'button', 'switch', 'tabs'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/dashboard-06.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/dashboard-06.json'
   },
   'dashboard-07': {
     name: 'dashboard-07',
@@ -90,7 +90,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'dashboard',
     components: ['card', 'progress', 'badge'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/dashboard-07.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/dashboard-07.json'
   },
 
   // Chart Blocks
@@ -100,7 +100,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'charts',
     components: ['card', 'chart'],
     dependencies: ['recharts'],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/chart-01.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/chart-01.json'
   },
   'chart-02': {
     name: 'chart-02',
@@ -108,7 +108,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'charts',
     components: ['card', 'chart'],
     dependencies: ['recharts'],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/chart-02.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/chart-02.json'
   },
   'chart-03': {
     name: 'chart-03',
@@ -116,7 +116,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'charts',
     components: ['card', 'chart'],
     dependencies: ['recharts'],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/chart-03.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/chart-03.json'
   },
   'chart-04': {
     name: 'chart-04',
@@ -124,7 +124,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'charts',
     components: ['card', 'chart'],
     dependencies: ['recharts'],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/chart-04.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/chart-04.json'
   },
 
   // Sidebar Layouts
@@ -134,7 +134,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'layout',
     components: ['button', 'sheet', 'scroll-area'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/sidebar-01.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/sidebar-01.json'
   },
   'sidebar-02': {
     name: 'sidebar-02',
@@ -142,7 +142,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'layout',
     components: ['accordion', 'button', 'sheet'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/sidebar-02.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/sidebar-02.json'
   },
   'sidebar-03': {
     name: 'sidebar-03',
@@ -150,7 +150,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'layout',
     components: ['avatar', 'button', 'dropdown-menu', 'sheet'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/sidebar-03.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/sidebar-03.json'
   },
   'sidebar-04': {
     name: 'sidebar-04',
@@ -158,7 +158,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'layout',
     components: ['button', 'tooltip', 'sheet'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/sidebar-04.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/sidebar-04.json'
   },
   'sidebar-05': {
     name: 'sidebar-05',
@@ -166,7 +166,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'layout',
     components: ['input', 'button', 'command', 'sheet'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/sidebar-05.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/sidebar-05.json'
   },
   'sidebar-06': {
     name: 'sidebar-06',
@@ -174,7 +174,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'layout',
     components: ['button', 'sheet'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/sidebar-06.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/sidebar-06.json'
   },
   'sidebar-07': {
     name: 'sidebar-07',
@@ -182,7 +182,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'layout',
     components: ['button', 'separator', 'sheet'],
     dependencies: [],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/sidebar-07.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/sidebar-07.json'
   },
 
   // Settings Forms
@@ -192,7 +192,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'forms',
     components: ['form', 'tabs', 'card', 'button', 'input', 'label'],
     dependencies: ['react-hook-form', 'zod', '@hookform/resolvers'],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/settings-01.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/settings-01.json'
   },
   'settings-02': {
     name: 'settings-02',
@@ -200,7 +200,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'forms',
     components: ['form', 'card', 'button', 'input', 'textarea', 'label', 'avatar'],
     dependencies: ['react-hook-form', 'zod', '@hookform/resolvers'],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/settings-02.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/settings-02.json'
   },
   'settings-03': {
     name: 'settings-03',
@@ -208,7 +208,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'forms',
     components: ['form', 'card', 'button', 'input', 'label'],
     dependencies: ['react-hook-form', 'zod', '@hookform/resolvers'],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/settings-03.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/settings-03.json'
   },
   'settings-04': {
     name: 'settings-04',
@@ -216,7 +216,7 @@ export const BLOCKS_REGISTRY: Record<string, BlockMeta> = {
     category: 'forms',
     components: ['form', 'card', 'switch', 'label'],
     dependencies: ['react-hook-form', 'zod', '@hookform/resolvers'],
-    registryUrl: 'https://ui.shadcn.com/registry/default/block/settings-04.json'
+    registryUrl: 'https://ui.shadcn.com/r/styles/default/settings-04.json'
   }
 };
 

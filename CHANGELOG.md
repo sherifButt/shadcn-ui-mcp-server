@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [1.0.7] - 2025-08-22
+
+### Fixed
+- 🔧 Updated registry service to use correct block URLs (`https://ui.shadcn.com/r/styles/default/`)
+- ✅ Resolves "Failed to fetch block dashboard-01: Not Found" error
+- 📋 All blocks now fetch correctly from the new shadcn/ui registry structure
+
+### Background
+The shadcn/ui registry structure changed, causing block URLs to return 404 errors. The old URL format `/registry/default/block/` was replaced with the new format `/r/styles/default/`. This fix updates all registry URLs and ensures block fetching works correctly.
+
 ## [1.0.6] - 2025-08-22
 
 ### Fixed
