@@ -1,0 +1,56 @@
+{
+  "name": "@sherifbutt/shadcn-ui-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for shadcn/ui components with source code access, demos, and blocks support",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "shadcn-ui-mcp-server": "dist/index.js"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist",
+    "test": "node --test",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "mcp",
+    "shadcn",
+    "ui",
+    "components",
+    "typescript",
+    "react",
+    "model-context-protocol"
+  ],
+  "author": "sherifButt",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sherifbutt/shadcn-ui-mcp-server.git"
+  },
+  "homepage": "https://github.com/sherifbutt/shadcn-ui-mcp-server#readme",
+  "bugs": {
+    "url": "https://github.com/sherifbutt/shadcn-ui-mcp-server/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
