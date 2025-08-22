@@ -6,6 +6,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [1.0.6] - 2025-08-22
+
+### Fixed
+- 🔧 Updated CLI integration to use `shadcn@latest` instead of deprecated `shadcn-ui@latest`
+- ✅ Resolves installation errors for components and blocks
+- 📚 Updated documentation to reflect new CLI package name
+
+### Background
+The official shadcn CLI package changed from `shadcn-ui` to `shadcn`, causing installation failures when the server tried to use the old deprecated package.
+
+## [1.0.5] - 2025-08-22
+
+### Improved
+- 🔍 Better error messages for install_component when component not found
+- 💡 Suggests matching blocks when user tries to install a block as component
+- 🎯 Example: "sidebar" now suggests "sidebar-01, sidebar-02, sidebar-03"
+
 ## [1.0.4] - 2025-08-22
 
 ### Updated

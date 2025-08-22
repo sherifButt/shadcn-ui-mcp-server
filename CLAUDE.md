@@ -142,7 +142,7 @@ The official shadcn/ui registry returns JSON with this structure:
 ```
 
 ### CLI Integration Patterns
-- Use `CliService.executeCommand()` for all shadcn CLI operations
+- Use `CliService.executeCommand()` for all shadcn CLI operations (uses `shadcn@latest`)
 - Always set timeouts (default: 30s for commands, 120s for init)
 - Handle both stdout/stderr and parse output for user-friendly responses
 - Commands run in user-specified `cwd` or current directory

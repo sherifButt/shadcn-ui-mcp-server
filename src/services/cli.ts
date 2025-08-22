@@ -62,7 +62,7 @@ export class CliService {
   }
 
   async init(options: CliOptions = {}): Promise<CliResult> {
-    const args = ['shadcn-ui@latest', 'init'];
+    const args = ['shadcn@latest', 'init'];
 
     if (options.yes) args.push('--yes');
     if (options.defaults) args.push('--defaults');
@@ -80,7 +80,7 @@ export class CliService {
   }
 
   async add(components: string[], options: CliOptions = {}): Promise<CliResult> {
-    const args = ['shadcn-ui@latest', 'add', ...components];
+    const args = ['shadcn@latest', 'add', ...components];
 
     if (options.yes) args.push('--yes');
     if (options.force) args.push('--force');
@@ -93,7 +93,7 @@ export class CliService {
   }
 
   async diff(component: string, options: CliOptions = {}): Promise<CliResult> {
-    const args = ['shadcn-ui@latest', 'diff', component];
+    const args = ['shadcn@latest', 'diff', component];
 
     if (options.yes) args.push('--yes');
 
