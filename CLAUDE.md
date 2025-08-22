@@ -2,86 +2,90 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Common Development Tasks
+## Development Commands
 
-### Building and Running
+### Core Development Tasks
 ```bash
 npm install        # Install dependencies
-npm run build      # Build TypeScript to JavaScript
+npm run build      # Build TypeScript to JavaScript (required before running)
 npm run dev        # Watch mode for development
-npm run lint       # Type check without emitting
-npm start          # Run the compiled server
+npm run lint       # Type check without emitting files
+npm start          # Run the compiled MCP server
+npm run clean      # Remove dist/ directory
+```
+
+### Publishing Workflow
+```bash
+npm run build      # Build first
+npm run lint       # Ensure no type errors
+git add .          # Stage changes
+git commit -m "description"  # Commit changes
+npm version patch|minor|major  # Increment version
+npm publish --access public   # Publish to npm
 ```
 
 ### Testing the MCP Server
-The server runs on stdio, so it needs to be configured in an MCP client like Claude Desktop:
+The server is a stdio-based MCP server. Test configurations:
 
-**Option 1: Using npx (recommended)**
-```json
-{
-  "mcpServers": {
-    "shadcn-ui": {
-      "command": "npx",
-      "args": ["@sherifbutt/shadcn-ui-mcp-server"]
-    }
-  }
-}
+**Claude Code MCP Integration:**
+```bash
+# Add MCP server to Claude Code
+claude mcp add shadcn-ui npx @sherifbutt/shadcn-ui-mcp-server
+
+# List configured servers
+claude mcp list
+
+# Remove if needed
+claude mcp remove shadcn-ui
 ```
 
-**Option 2: Global installation**
-```json
-{
-  "mcpServers": {
-    "shadcn-ui": {
-      "command": "shadcn-ui-mcp-server"
-    }
-  }
-}
+**Manual Testing:**
+```bash
+# Direct execution (will run and wait for MCP messages)
+npx @sherifbutt/shadcn-ui-mcp-server
+
+# Development mode
+./dist/index.js
 ```
 
-**Option 3: Development mode**
-```json
-{
-  "mcpServers": {
-    "shadcn-ui": {
-      "command": "node",
-      "args": ["/absolute/path/to/dist/index.js"]
-    }
-  }
-}
-```
+## Project Architecture
 
-## Architecture Overview
+### MCP Server Structure
+This is a **Model Context Protocol (MCP) server** that provides 12 tools for working with shadcn/ui components:
 
-### Core Components
+**Component Tools:** list_components, get_component_source, get_component_metadata, get_component_demo, install_component
 
-1. **MCP Server (`src/index.ts`)**
-   - Entry point implementing the MCP protocol
-   - Handles all tool requests and responses
-   - Uses StdioServerTransport for communication
-   - Implements 12 tools for shadcn/ui operations
+**Block Tools:** list_blocks, get_block_source, install_block
 
-2. **Data Registries (`src/data/`)**
-   - `components.ts`: Registry of 50+ shadcn/ui components with metadata
-   - `blocks.ts`: Registry of 25+ pre-built UI blocks
-   - Each entry includes name, description, dependencies, and registry URLs
+**Repository Tools:** browse_repository, search_repository  
 
-3. **Services (`src/services/`)**
-   - `registry.ts`: Fetches component/block source from shadcn/ui registry API
-   - `cli.ts`: Executes shadcn/ui CLI commands (init, add, diff)
-   - Both services include comprehensive error handling
+**Project Tools:** init_shadcn, check_project_status
 
-4. **Utilities (`src/utils/`)**
-   - `demos.ts`: Generates demo code for components
-   - Provides multiple examples per component
-   - Formats code with proper imports
+### Core Modules
 
-### Key Design Patterns
+1. **`src/index.ts`** - Main MCP server implementation
+   - Uses StdioServerTransport for MCP communication
+   - All tools use Zod schemas for input validation
+   - Comprehensive error handling with proper MCP error codes
 
-1. **Tool Input Validation**: All tools use Zod schemas for input validation
-2. **Error Handling**: Proper MCP error codes (InvalidRequest, InternalError, etc.)
-3. **Async Operations**: All external calls (registry, CLI) are properly async
-4. **Type Safety**: Full TypeScript with strict mode enabled
+2. **`src/data/`** - Static registries with metadata
+   - `components.ts`: 50+ shadcn/ui components with categories, dependencies, registry URLs
+   - `blocks.ts`: 25+ pre-built blocks (auth, dashboard, forms, etc.)
+
+3. **`src/services/`** - External integrations
+   - `registry.ts`: Fetches live source code from ui.shadcn.com/registry API
+   - `cli.ts`: Executes shadcn/ui CLI commands with proper process handling
+
+4. **`src/utils/`** - Code generation
+   - `demos.ts`: Generates formatted demo code with imports and examples
+
+### Key Technical Patterns
+
+- **Registry API Integration**: Fetches live TypeScript source from official shadcn/ui registry
+- **CLI Process Management**: Spawns child processes with timeout/error handling
+- **Zod Input Validation**: All MCP tool inputs validated with schemas
+- **Type-Safe Error Handling**: Uses MCP error codes (InvalidRequest, InternalError, etc.)
+- **Demo Code Generation**: Provides multiple usage examples per component
 
 ## Adding New Components
 
@@ -124,36 +128,38 @@ Add to `BLOCKS_REGISTRY` in `src/data/blocks.ts`:
 }
 ```
 
-## Important Considerations
+## Development Guidelines
 
-1. **Registry API**: The shadcn/ui registry API returns JSON with this structure:
-   ```typescript
-   {
-     files: [{ name: string, content: string }],
-     dependencies?: string[],
-     devDependencies?: string[],
-     registryDependencies?: string[]
-   }
-   ```
+### Registry API Integration
+The official shadcn/ui registry returns JSON with this structure:
+```typescript
+{
+  files: [{ name: string, content: string }],
+  dependencies?: string[],
+  devDependencies?: string[],
+  registryDependencies?: string[]
+}
+```
 
-2. **CLI Integration**: The CLI service spawns child processes, so:
-   - Always set appropriate timeouts
-   - Handle both stdout and stderr
-   - Parse CLI output for user-friendly responses
+### CLI Integration Patterns
+- Use `CliService.executeCommand()` for all shadcn CLI operations
+- Always set timeouts (default: 30s for commands, 120s for init)
+- Handle both stdout/stderr and parse output for user-friendly responses
+- Commands run in user-specified `cwd` or current directory
 
-3. **Error Handling**: Always throw `McpError` with appropriate error codes:
-   - `ErrorCode.InvalidRequest`: Bad input parameters
-   - `ErrorCode.InternalError`: Server/network failures
-   - `ErrorCode.MethodNotFound`: Unknown tool name
+### MCP Error Handling
+Always throw `McpError` with proper error codes:
+- `ErrorCode.InvalidRequest`: Invalid parameters or component not found
+- `ErrorCode.InternalError`: Network failures, CLI errors, or server issues  
+- `ErrorCode.MethodNotFound`: Unknown tool name
 
-4. **Performance**: The server caches nothing currently. Consider adding:
-   - Registry response caching
-   - Component metadata caching
-   - CLI command result caching
+### Performance Considerations
+- No caching implemented - registry calls and CLI operations run fresh each time
+- Registry fetches are async and may be slow on first use
+- CLI operations depend on npm/internet speed
 
-## Debugging Tips
-
-1. Server logs to stderr: `console.error()` for debug messages
-2. Test individual services before integrating into tools
-3. Validate against actual shadcn/ui registry responses
-4. Check CLI command execution in isolation first
+### Debugging
+- Server logs to stderr with `console.error()`
+- Test individual services in isolation before tool integration
+- MCP protocol expects JSON responses - malformed responses will fail silently
+- Use `npm run lint` to catch type errors before runtime

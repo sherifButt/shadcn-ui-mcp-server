@@ -11,6 +11,8 @@ npx @sherifbutt/shadcn-ui-mcp-server
 # Or install globally for faster startup
 npm install -g @sherifbutt/shadcn-ui-mcp-server
 shadcn-ui-mcp-server
+
+# 
 ```
 
 Then configure it in Claude Desktop (see detailed setup below).
@@ -129,6 +131,48 @@ npm start
    - Restart Claude Desktop
    - Look for the 🔌 MCP connection indicator
    - Try asking: "List all shadcn/ui form components"
+
+### Step 3: CLAUDE.md / roles.md
+
+```md
+## Front End Roles
+
+When a task requires building or modifying a user interface, you must use the tools available in the shadcn-ui MCP server.
+
+### Planning Rule
+
+When planning a UI build using shadcn :
+
+1. Discover Assets: First, use `list_components()` and `list_blocks()` to see all available assets in the MCP server.
+2. Map Request to Assets: Analyse the user's request and map the required UI elements to the available components and blocks.
+3. Prioritise Blocks: You should prioritise using blocks ( `get_block` ) wherever possible for common, complex UI patterns (e.g., login pages, calendars, dashboards). Blocks provide more structure and accelerate development. Use individual components ( `get_component` ) for smaller, more specific needs.
+
+### Implementation Rule
+
+When implementing the UI:
+1. Get a Demo First: Before using a component, you must call the `get_component_demo(component_name)` tool. This is critical for understanding how the
+component is used, its required props, and its structure.
+
+2. Retrieve the Code:
+- For a single component, call get_component(component_name) .
+- For a composite block, call get_block(block_name) .
+
+3. Implement Correctly: Integrate the retrieved code into the application, customising it with the necessary props and logic to fulfil the user's request.
+```
+
+### Step 4: files setup
+
+```Prompt
+Please act as a Lead UX Architect. Your task is to create a detailed UX Structure Plan for the above web application. The final output must be a single Markdown (UX_Structure_Planpo.md) file. The structure of this file is critical: it must use a hierarchical, indented list with box-drawing characters (like ├── and └──) to create a clear tree structure, exactly like the provided reference style.
+```
+
+```Prompt
+Please look at the @UX_Structure_Plan.md and make an ui-implementation using shaden ui as to what components will be used in the ui structure and where. And you should only write the name of the appropriate components to be used. Not the code.
+```
+
+```Prompt
+Please act as a Lead Backend Architect. Your task is to create a detailed Backend Structure Plan for the above web application. The final output must be a single Markdown (.md) file. The structure of this file is critical: it must use a hierarchical, indented list with box-drawing characters (like ├── and └──) to create a clear tree structure, exactly like the provided reference style.
+```
 
 ### Step 3: First Commands
 
