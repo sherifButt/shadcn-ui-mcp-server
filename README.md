@@ -15,6 +15,16 @@ shadcn-ui-mcp-server
 
 Then configure it in Claude Desktop (see detailed setup below).
 
+## 🎥 Demo
+
+Once configured, try these example interactions:
+
+- **"List all shadcn/ui form components"** - See all available form-related components
+- **"Get the Button component source code"** - Fetch the latest TypeScript implementation
+- **"Show me how to create a card with form"** - Get demo code with examples
+- **"Install dialog and form components in my project"** - Use CLI integration
+- **"What dashboard blocks are available?"** - Browse pre-built layouts
+
 ## Features
 
 - **📦 Component Source Code Access** - Fetch latest shadcn/ui v4 TypeScript source code
@@ -478,6 +488,26 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 MIT License - see LICENSE file for details
+
+## FAQ
+
+### Q: How do I know if the MCP server is working?
+A: Look for the 🔌 icon in Claude Desktop indicating MCP servers are connected. You can also ask "List all shadcn/ui components" to test.
+
+### Q: Can I use this with my existing React project?
+A: Yes! The server works with any project. Use the `init_shadcn` and `install_component` tools to set up shadcn/ui in your project.
+
+### Q: Do I need to install anything globally?
+A: No! Using `npx @sherifbutt/shadcn-ui-mcp-server` requires no global installation.
+
+### Q: What's the difference between components and blocks?
+A: Components are individual UI elements (button, input, etc.). Blocks are complete implementations (login pages, dashboards, etc.).
+
+### Q: How often is the component registry updated?
+A: The server fetches live data from the official shadcn/ui registry, so you always get the latest versions.
+
+### Q: Can I use this with TypeScript and JavaScript projects?
+A: Yes! The server supports both TypeScript and JavaScript projects. Components are provided in TypeScript but work in both.
 
 ## Acknowledgments
 
