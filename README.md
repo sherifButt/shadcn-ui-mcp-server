@@ -196,9 +196,26 @@ Try these commands to get started:
    }
    ```
 
-3. **Restart Claude Desktop** for the changes to take effect.
+3. **Claude code CLI**:
 
-4. **Verify the connection:** Look for the 🔌 icon in Claude Desktop indicating MCP servers are connected.
+  ```bash
+  # Add the MCP server
+  claude-code mcp add shadcn-ui npx @sherifbutt/shadcn-ui-mcp-server
+  ```
+  
+  ```bash
+  # List configured MCP servers
+  claude-code mcp list
+  ```
+
+  ```bash
+  # Remove an MCP server (if needed)
+  claude-code mcp remove shadcn-ui
+  ```
+
+4. **Restart Claude Desktop** for the changes to take effect.
+
+5. **Verify the connection:** Look for the 🔌 icon in Claude Desktop indicating MCP servers are connected.
 
 ### Other MCP Clients
 
