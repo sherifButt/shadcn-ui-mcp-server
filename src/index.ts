@@ -464,10 +464,20 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         // Validate all components exist
         for (const comp of components) {
           if (!getComponentByName(comp)) {
-            throw new McpError(
-              ErrorCode.InvalidRequest,
-              `Component "${comp}" not found`
-            );
+            // Check if it might be a block instead
+            const matchingBlocks = searchBlocks(comp);
+            if (matchingBlocks.length > 0) {
+              const blockNames = matchingBlocks.map(b => b.name).slice(0, 3).join(', ');
+              throw new McpError(
+                ErrorCode.InvalidRequest,
+                `Component "${comp}" not found. Did you mean to use a block instead? Try: ${blockNames}`
+              );
+            } else {
+              throw new McpError(
+                ErrorCode.InvalidRequest,
+                `Component "${comp}" not found. Use list_components to see available components.`
+              );
+            }
           }
         }
 
