@@ -1,6 +1,6 @@
 {
   "name": "@sherifbutt/shadcn-ui-mcp-server",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "MCP server for shadcn/ui components with source code access, demos, and blocks support",
   "type": "module",
   "main": "./dist/index.js",
